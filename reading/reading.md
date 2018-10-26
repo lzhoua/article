@@ -17,7 +17,7 @@
 ### javascript
 
 1. [如何用js获取虚拟键盘高度](https://segmentfault.com/a/1190000010693229?utm_medium=hao.caibaojian.com&utm_source=hao.caibaojian.com&share_user=1030000000178452)
-2. [js开发月报](http://jsfront.org/month/2018/201804.html)
+2. [js开发月报](http://jsfront.org/month/2018/201804.html)
 3. [理解 JavaScript 的 async/await](https://segmentfault.com/a/1190000007535316)
 4. [使用Flexible实现手淘H5页面的终端适配](https://github.com/amfe/article/issues/17)
 5. [教你如何用 lib-flexible 实现移动端H5页面适配](https://blog.csdn.net/pwc1996/article/details/75738725)
@@ -72,7 +72,7 @@
 
 ### webpack
 
-1. [webpack官网](http://webpack.css88.com/)
+1. [webpack官网](http://webpack.css88.com/)
 2. [入门Webpack，看这篇就够了_奔三路学习网](http://www.bslxx.com/a/mianfeivueke/vuecongrumendaojingtong/2018/0211/1719.html)
 
 
