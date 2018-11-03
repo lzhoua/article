@@ -20,17 +20,17 @@
   let newA = obj.getA
   newA()    // 10
   /**
-  *    如上所示，当我们调用函数所在的作用域改变时，this指针相应的更改
+  *    如上所示，当我们调用函数所在的作用域改变时，this指针相应的更改
   *    我们有什么办法能一直读取到 obj 中的变量 a ,而不是读取全局中的变量 a 呢，使用bind()方法即可
   **/
-  let newA2 = obj.getA.bind(obj)
+  let newA2 = obj.getA.bind(obj)
   newA2()    // 20
   // 【注意】当 bind() 的第一个参数为 null 时，即不更改 this 指向
  ```
 
-- `bind` 函数返回一个新函数，并且 `this` 指针指向第一个参数，同时，后面还可以添加绑定函数的参数的参数。
+- `bind` 函数返回一个新函数，并且 `this` 指针指向第一个参数，同时，后面还可以添加绑定函数的参数的参数。
 
-1. 第一步:实现返回一个新函数，并且 `this` 指向第一个参数
+1. 第一步:实现返回一个新函数，并且 `this` 指向第一个参数
 
 ```javascript
 // 因为 bind 是函数的方法 ， 所以在函数的原型上添加
@@ -42,13 +42,13 @@ Function.prototype.bind = function (fn) {
 }
 ```
 
-2. 第二步：实现参数的添加
+2. 第二步：实现参数的添加
 
 ```javascript
 // 因为 bind 是函数的方法 ， 所以在函数的原型上添加
 Function.prototype.bind = function (fn) {
   let _this = this
-  let args = Arrag.prototype.slice.call(arguments, 1) // 取得从第一个参数至最后一个参数组成的数组
+  let args = Arrag.prototype.slice.call(arguments, 1) // 取得从第一个参数至最后一个参数组成的数组
   return function () {  // 返回一个新函数
     return _this.apply(fn, args)
   }
@@ -61,7 +61,7 @@ Function.prototype.bind = function (fn) {
 // 因为 bind 是函数的方法 ， 所以在函数的原型上添加
 Function.prototype.bind = function (fn) {
   let _this = this
-  let args = Arrag.prototype.slice.call(arguments, 1) // 取得从第一个参数至最后一个参数组成的数组
+  let args = Arrag.prototype.slice.call(arguments, 1) // 取得从第一个参数至最后一个参数组成的数组
   return function () {  // 返回一个新函数
     let agg = Arrag.prototype.slice.call(arguments, 0)
     return _this.apply(fn, args.concat(agg))
@@ -72,5 +72,5 @@ Function.prototype.bind = function (fn) {
 4. 官方文档上有一句话: 绑定过后的函数被new实例化之后，需要继承原函数的原型链方法，且绑定过程中提供的this被忽略（继承原函数的this对象），但是参数还是会使用。
 
 ```javascript
-  😁有空再来实现
+    😁有空再来实现
 ```
