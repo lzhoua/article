@@ -57,6 +57,7 @@
 5. [Knex.js - Javascript的SQL查询生成器](http://knexjs.org/)
 6. [Mongoose基础入门](https://www.cnblogs.com/xiaohuochai/p/7215067.html?utm_source=itdadao&utm_medium=referral)
 7. [node入门-书籍](https://www.nodebeginner.org/index-zh-cn.html)
+8. [Redis 使用](http://www.redis.cn/documentation.html)
 
 ### blog
 
