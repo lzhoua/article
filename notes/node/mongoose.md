@@ -1,16 +1,16 @@
 ## Mongoose是什么？
 Mongoose是MongoDB的一个对象模型工具，是基于node-mongodb-native开发的MongoDB nodejs驱动，可以在异步的环境下执行。同时它也是针对MongoDB操作的一个对象模型库，封装了MongoDB对文档的的一些增删改查等常用方法，让NodeJS操作Mongodb数据库变得更加灵活简单。
 
-### 安装与引用
+### 安装与引用
 1. 安装
     ```
     npm install mongoose --save
     ```
-2. 引用与连接数据库
+2. 引用与连接数据库
     ```javascript
     const mongoose = require('mongoose')
     const url = 'mongodb://localhost:27017'  数据库地址
-    const dbName = 'admin' // 数据库名
+    const dbName = 'admin' // 数据库名
 
     let db = mongoose.connect(`${url}${dbName}`)
 
@@ -81,7 +81,7 @@ userModel.create(data, (error, docs) => {
 })
 
 ```
-user: 【**注意，`mongoose` 会自动添加 `s`, 大写会变为小写，所以数据库中的集合名是 `users`**】数据库中的集合名称,当我们对其添加数据时如果 `users` 已经存在，则会保存到其目录下，如果未存在，则会创建 `users` 集合，然后在保存数据。
+user: 【**注意，`mongoose` 会自动添加 `s`, 大写会变为小写，所以数据库中的集合名是 `users`**】数据库中的集合名称,当我们对其添加数据时如果 `users` 已经存在，则会保存到其目录下，如果未存在，则会创建 `users` 集合，然后在保存数据。
 
 创建一个 `Model` 模型，我们需要指定：1.集合名称，2.集合的 `Schema` 结构对象，满足这两个条件，我们就会拥有一个操作数据库的金钥匙。
 
@@ -211,7 +211,7 @@ user: 【**注意，`mongoose` 会自动添加 `s`, 大写会变为小写，所�
 1. limit函数的基本用法
     ```javascript
     Model.find({},null,{limit:20},function(err,docs){
-        // 限制返回的文档数量为 20
+        // 限制返回的文档数量为 20
         console.log(docs);
     });
     ```
