@@ -16,17 +16,17 @@
   ```
 
 ### koa路由 `koa-router`
-`koa` 路由需要手动引入，`express` 是自带
+`koa` 路由需要手动引入，`express` 是自带
 - 下载
   ```
   npm install koa-router --save
   ```
 - 使用
   ```javascript
-  const Koa = require('koa')
+  const Koa = require('koa')
   const router = require('koa-router')() // 需要实例化
 
-  const app = new Koa()
+  const app = new Koa()
 
   router.get('/', (ctx, next) => {
     ctx.body = 'hello, 这是首页'
@@ -43,7 +43,7 @@
 
 - `get`传值接收
   1. ctx.query：以对象的形式
-  2. ctx.querystring: 以字符串形式
+  2. ctx.querystring: 以字符串形式
   3. 也可以使用 ct.request.query
 
 - 动态路由
@@ -67,7 +67,7 @@
   ```javascript
   // ......
   app.use(async (ctx, next) => { // 在任一个路由匹配之前都会执行
-    console.log('应用级中间件')
+    console.log('应用级中间件')
     await next() // 如果不用next将会在这里停止
   })
 
@@ -80,7 +80,7 @@
   ```javascript
   // ......
   router.get('/home', async (ctx, next) => { // 先执行此路由匹配
-    console.log('会先执行此匹配')
+    console.log('会先执行此匹配')
     await next() // 如果不用next将不会接着匹配下个路由
   })
 
@@ -92,10 +92,10 @@
   ```javascript
   // ......
   app.use(async (ctx, next) => { // 在任一个路由匹配之前都会执行
-    console.log('先执行此步骤')
-    await next() // 跳到相应路由匹配
+    console.log('先执行此步骤')
+    await next() // 跳到相应路由匹配
 
-    // 执行完路由匹配后再回来执行下面代码
+    // 执行完路由匹配后再回来执行下面代码
     if (ctx.status === 404) {
       ctx.body = '这是一个404页面'
     } else {
@@ -113,14 +113,14 @@
   ```javascript
   app.use(async (ctx, next) => {
     console.log('这是第 1 步执行')
-    await next()
+    await next()
 
     console.log('这是第 6 步执行')
   })
 
   app.use(async (ctx, next) => {
     console.log('这是第 2 步执行')
-    await next()
+    await next()
 
     console.log('这是第 5 步执行')
   })
@@ -162,13 +162,13 @@
     })
   ```
 
-- 使用 `koa-bodyparser` 中间件
+- 使用 `koa-bodyparser` 中间件
  1. 安装
     ```
     npm install koa-bodyparser --save
     ```
 
- 2. 用法
+ 2. 用法
     ```javascript
       const Koa = require('koa')
       const bodyParser = require('koa-bodyparser')
@@ -189,6 +189,3 @@
   - 
 
 
-
-
- 
