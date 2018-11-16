@@ -27,9 +27,7 @@
  >父组件beforeCreated -> 父组件created -> 父组件beforeMounted -> 子组件beforeCreated -> 子组件created -> 子组件beforeMounted -> 子组件mounted -> 父组件mounted。
 
 在销毁时，父子组件的生命周期是：
- >父组件beforeDestory -> 子组件beforeDestoryed -> 子组件destoryed -> 父组件destoryed
+ >父组件 `beforeDestory`-> 子组件 `beforeDestoryed` -> 子组件 `destoryed` -> 父组件 `destoryed`
 
 总之记住，父子组件的生命周期遵循：由外到内，再由内到外
-
-
 
