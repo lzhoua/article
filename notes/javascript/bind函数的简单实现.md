@@ -39,7 +39,7 @@ Function.prototype.bind = function (fn) {
   return function () {  // 返回一个新函数
     return _this.apply(fn)
   }
-}
+} r
 ```
 
 2. 第二步：实现参数的添加
