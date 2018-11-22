@@ -67,8 +67,11 @@ export default {
 </script>
 ```
  效果
+ 
 ===
+
 ![Kapture 2018-11-22 at 13.55.00](media/Kapture%202018-11-22%20at%2013.55.00.gif)
+
 ===
 
 #### 2. `$attrs` 和 `$listeners` 隔代组件传值 
@@ -175,6 +178,7 @@ export default {
 </script>
 ```
 ===
+
 ![Kapture 2018-11-22 at 16.57.19](media/Kapture%202018-11-22%20at%2016.57.19.gif)
 
 ===
@@ -238,7 +242,9 @@ Vue.component('brother1', {
   })
 ```
 ===
+
 ![Kapture 2018-11-22 at 14.42.30](media/Kapture%202018-11-22%20at%2014.42.30.gif)
+
 ===
 
 
@@ -310,6 +316,7 @@ export default {
 ```
 
 ===
+
 ![Kapture 2018-11-22 at 15.16.56](media/Kapture%202018-11-22%20at%2015.16.56.gif)
 
 ===
