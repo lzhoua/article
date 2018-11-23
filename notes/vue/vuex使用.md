@@ -119,49 +119,48 @@
 #### mutations
  >mutations 你可以把它想象是 vue 中的 methods 属性，里面存放操作 state 的一些方法，【注意】mutations 只能存放同步的方法，有异步操作的请放入 actions 中。
  
-    <p style="color: #55b9b4">
-    1.每个 mutation 都有一个字符串的 事件类型 (type) 和 一个 回调函数 (handler)。
-    </p>
-    <p style="color: #55b9b4">
-    2.回调函数接受 state 作为第一个参数, 其余参数可以作为调用时候的传参 
-    </p>
+<p style="color: #55b9b4">
+1.每个 mutation 都有一个字符串的 事件类型 (type) 和 一个 回调函数 (handler)。
+</p>
+<p style="color: #55b9b4">
+2.回调函数接受 state 作为第一个参数, 其余参数可以作为调用时候的传参 
+</p>
 
+```javascript
+const store = new Vuex.Store({
+  state: {
+    count: 1
+  },
+  mutations: {
+    add (state) {
+      // 变更状态
+      state.count++
+    },
+  }
+})
+```
 
-    ```javascript
-    const store = new Vuex.Store({
-      state: {
-        count: 1
-      },
-      mutations: {
-        add (state) {
-          // 变更状态
-          state.count++
-        },
-      }
-    })
-    ```
-
-    <p style="color: #55b9b4">
-    可以使用常亮代替 mutations 事件类型，同时把这些常量放在单独的文件中可以让你的代码合作者对整个 app 包含的 mutation 一目了然
-    </p>
-    ```javascript
-    // mutation-types.js
-    export const SOME_MUTATION = 'SOME_MUTATION'
-    ```
-    ```javascript
-    import Vuex from 'vuex'
-    import { SOME_MUTATION } from './mutation-types'
+<p style="color: #55b9b4">
+可以使用常亮代替 mutations 事件类型，同时把这些常量放在单独的文件中可以让你的代码合作者对整个 app 包含的 mutation 一目了然
+</p>
+```javascript
+// mutation-types.js
+export const SOME_MUTATION = 'SOME_MUTATION'
+```
+```javascript
+import Vuex from 'vuex'
+import { SOME_MUTATION } from './mutation-types'
     
-    const store = new Vuex.Store({
-      state: { ... },
-      mutations: {
-        // 我们可以使用 ES2015 风格的计算属性命名功能来使用一个常量作为函数名
-        [SOME_MUTATION] (state) {
-          // mutate state
-        }
-      }
-    })
-    ```
+const store = new Vuex.Store({
+  state: { ... },
+  mutations: {
+    // 我们可以使用 ES2015 风格的计算属性命名功能来使用一个常量作为函数名
+    [SOME_MUTATION] (state) {
+      // mutate state
+    }
+  }
+})
+```
     
     
 - 实例
