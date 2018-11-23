@@ -165,54 +165,54 @@ const store = new Vuex.Store({
     
 - 实例
     
-    ```javascript
-    //index.js
-    import Vuex from 'vuex'
-    import Vue from 'vue'
-    Vue.use(Vuex)
-    const store = new Vuex.Store({
-      state: {
-        count: 12,
-        value: 'hello'
-      },
-      mutations: {
-        add (state) {
-          state.count++
-        },
-        change (state, data) {
-          state.value = data
-        }
-      }
-    })
-    ```
-    
-    ```html
-    <template>
-      <div class='home'>
-        <p>this num: {{num}}</p>
-        <p>this value: {{val}}</p>
-        <button @click="add">+</button>
-        <button @click="change">change</button>
-      </div>
-    </template>
-    <script>
-    import {mapState} from 'vuex'
-    export default {
-      computed: mapState({
-        num: 'count',
-        val: 'value'
-      }),
-      methods: {
-        add () {
-          this.$store.commit('add')
-        },
-        change () {
-          this.$store.commit('change', 'longzhou')
-        }
-      }
+```javascript
+//index.js
+import Vuex from 'vuex'
+import Vue from 'vue'
+Vue.use(Vuex)
+const store = new Vuex.Store({
+  state: {
+    count: 12,
+    value: 'hello'
+  },
+  mutations: {
+    add (state) {
+      state.count++
+    },
+    change (state, data) {
+      state.value = data
     }
-  </script>
-  ```
+  }
+})
+```
+    
+```html
+<template>
+  <div class='home'>
+    <p>this num: {{num}}</p>
+    <p>this value: {{val}}</p>
+    <button @click="add">+</button>
+    <button @click="change">change</button>
+  </div>
+</template>
+<script>
+import {mapState} from 'vuex'
+export default {
+  computed: mapState({
+    num: 'count',
+    val: 'value'
+  }),
+  methods: {
+    add () {
+      this.$store.commit('add')
+    },
+    change () {
+      this.$store.commit('change', 'longzhou')
+    }
+  }
+}
+</script>
+```
 ---
 
 ![Kapture 2018-11-23 at 13.39.20](media/Kapture%202018-11-23%20at%2013.39.20.gif)
