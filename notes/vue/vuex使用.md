@@ -143,6 +143,7 @@ const store = new Vuex.Store({
 <p style="color: #55b9b4">
 可以使用常亮代替 mutations 事件类型，同时把这些常量放在单独的文件中可以让你的代码合作者对整个 app 包含的 mutation 一目了然
 </p>
+
 ```javascript
 // mutation-types.js
 export const SOME_MUTATION = 'SOME_MUTATION'
@@ -160,9 +161,8 @@ const store = new Vuex.Store({
     }
   }
 })
-```
-    
-    
+```    
+ 
 - 实例
     
 ```javascript
