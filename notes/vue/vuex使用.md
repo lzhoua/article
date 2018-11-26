@@ -49,7 +49,7 @@
 ```
  
 #### state
- >`vuex` 的 `state` 你可以想象成是 `vuex` 的 `data` 属性，里面都是预先定义好的一些变量，让后通过 `mutations` 或者 `actions` 里面定义的方法去改变它.
+ >`vuex` 的 `state` 你可以想象成是 `vuex` 的 `data` 属性，里面都是预先定义好的一些变量，然后通过 `mutations` 或者 `actions` 里面定义的方法去改变它.
 
 - 页面取值
  > 可以通过 `store.state.[key]` 来在页面中取的存储在state中的值
