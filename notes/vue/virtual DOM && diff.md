@@ -21,13 +21,14 @@
     对应Virtual DOM 算法：
     ```javascript
     let element = {
-        tagName: 'ul',
-        id: 'ul-warp',
-        className: '',
+        tag: 'ul',
+        attrs: {
+            id: 'ul-warp'
+        }
         children: {
-            {tagName: 'li', id: '', className: 'item1', children: ["item1"]},
-            {tagName: 'li', id: '', className: 'item2', children: ["item2"]},
-            {tagName: 'li', id: '', className: 'item3', children: ["item3"]},
+            {tag: 'li', attrs: {class: 'item1'}, children['item1']},
+            {tag: 'li', attrs: {class: 'item2'}, children['item2']},
+            {tag: 'li', attrs: {class: 'item3'}, children['item3']}
         }
     }
     ```
@@ -37,3 +38,37 @@
     这就是所谓的 Virtual DOM 算法：
 
     > 用 JavaScript 对象结构表示 DOM 树的结构；然后用这个树构建一个真正的 DOM 树，插到文档当中当状态变更时，重新构造一棵新的对象树。然后用新的树和旧的树进行比较两个数的差异。然后把差异更新到久的树上，整个视图就更新了。Virtual DOM 本质就是在 JS 和 DOM 之间做了一个缓存。既然已经知道 DOM 慢，就在 JS 和 DOM 之间加个缓存。JS 先操作 Virtual DOM 对比排序/变更，最后再把整个变更写入真实 DOM。
+    
+### 简单实现
+```javascript    
+let element = {
+    tag: 'ul',
+    attrs: {
+        id: 'ul-warp'
+    }
+    children: {
+        {tag: 'li', attrs: {class: 'item1'}, children['item1']},
+        {tag: 'li', attrs: {class: 'item2'}, children['item2']},
+        {tag: 'li', attrs: {class: 'item3'}, children['item3']}
+    }
+}
+
+
+function Vdom (dom, _el) {
+ if (typeof dom === 'string') {
+   _el.appendChild(document.createTextNode(dom))
+   return
+ }
+
+ let el = document.createElement(dom.tag)
+ 
+ Object.keys(dom.attrs).map(key => {
+   el.setAttribute(key, dom.attrs[key])
+ })
+ 
+ dom.children.map(_dom => {
+  Vdom(_dom, el)
+ })
+ _el.appendChild(el)
+}
+```
