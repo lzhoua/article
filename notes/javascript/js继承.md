@@ -1,33 +1,87 @@
 ### javascript 继承
-
-1. 原型链继承
+####原型链继承
 ```javascript
-    function Person () {
-      this.name = "longzhou"
-      this.age = 18
-      this.arr = [1,2,3]
+   function Parent () {
+      this.name = ['longzhou']
+    }
+    Parent.prototype.setName = function () {
+      this.name.push('change')
     }
     
-    Person.prototype.getName = function () {
-      console.log('------>', this.name)
-    }
+    function Children () {}
+    Children.prototype = new Parent()
     
-    function NewPerson () {}
+    let child1 = new Children()
+    let child2 = new Children()
     
-    NewPerson.prototype = new Person()
+    console.log('------>', child1.name) // ["longzhou"]
+    console.log('------>', child2.name) // ["longzhou"]
     
-    let instance = new NewPerson()
-    console.log(instance.age) // 18
-    console.log(instance.getName()) // longzhou
+    child1.setName()
+    
+    console.log('------>', child1.name) // ["longzhou", "change"]
+    console.log('------>', child2.name) // ["longzhou", "change"]
 ```
 
 > **缺点：** 多个实例对引用类型的操作会被篡改
+
+
+#### 构造函数继承
+    ```javascript
+    function Parent () {
+      this.name = ['longzhou']
+      this.setName = function () {
+        this.name.push('change')
+      }
+    }
+    function Children () {
+      Parent.call(this)
+    }
+    
+    let child1 = new Children()
+    let child2 = new Children()
+    
+    console.log('------>', child1.name) // ["longzhou"]
+    console.log('------>', child2.name) // ["longzhou"]
+    
+    child1.setName()
+    
+    console.log('------>', child1.name) // ["longzhou", "change"]
+    console.log('------>', child2.name) // ["longzhou"]
+    ```
+    
+   > 优点： 
+        1.避免了引用类型的属性被所有实例共享
+        2.可以在 Child 中向 Parent 传参
+    缺点: 
+    方法都在构造函数中定义，每次创建实例都会创建一遍方法。
+    
+
+#### 组合继承
+
 ```javascript
- let a = new NewPerson()
- let b = new NewPerson()
- console.log(b.arr) // [1,2,3]
- a.arr.push(4)
- console.log(b.arr) // [1,2,3,4]
+    function Parent () {
+      this.name = ['longzhou']
+      this.setName = function () {
+        this.name.push('change')
+      }
+    }
+    function Children () {
+      Parent.call(this)
+    }
+    Children.prototype = new Parent()
+    Children.prototype.constructor = Parent
+    
+    let child1 = new Children()
+    let child2 = new Children()
+    
+    console.log('------>', child1.name) // ["longzhou"]
+    console.log('------>', child2.name) // ["longzhou"]
+    
+    child1.setName()
+    
+    console.log('------>', child1.name) // ["longzhou", "change"]
+    console.log('------>', child2.name) // ["longzhou"]
+
 ```
 
-1. 借助构造函数继承
